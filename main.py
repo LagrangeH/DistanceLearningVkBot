@@ -9,13 +9,6 @@ from vk_api.utils import get_random_id
 import data
 
 
-def auth_handler():
-    # При двухфакторной аутентификации вызывается эта функция.
-    key = input("Enter authentication code: ")
-    remember_device = True
-    return key, remember_device
-
-
 def send_message(vk, id_type, id, message, attachment=None):
     vk.method('messages.send',
               {id_type: id, 'message': message, 'random_id': get_random_id(), 'attachment': attachment})
